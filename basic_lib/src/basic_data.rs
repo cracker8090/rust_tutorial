@@ -61,7 +61,7 @@ fn NaN_test() {
 fn Complex_test() {
     // 复数
     // num crate: https://crates.io/crates/num
-    use num::Complex;
+    use num::complex::Complex;
     let a = Complex { re: 2.1, im: -1.2 };
     let b = Complex::new(11.1, 22.2);
     let result = a + b;
@@ -78,3 +78,37 @@ fn unit_test() {
 
     println!("Success!")
 }
+
+// fn main() {
+//     println!("Hello, world!");
+//     let a = 10;
+//     let b: i32 = 20;
+
+//     let mut c = 30i32;
+//     let d = 30_i32;
+//     let e = add(add(a, b), add(c, d));
+
+//     println!("(a+b) + (c+d) = {}", e);
+// }
+
+// fn add(i: i32, j: i32) -> i32 {
+//     i + j
+// }
+
+// fn main() {
+//     let abc: (f32, f32, f32) = (0.1, 0.2, 0.3);
+//     let xyz: (f64, f64, f64) = (0.1, 0.2, 0.3);
+
+//     println!("abc (f32)");
+//     println!("     0.1 + 0.2: {:?}", (abc.0 + abc.1).to_bits());
+//     println!("           0.3: {:?}", (abc.2).to_bits());
+//     println!();
+
+//     println!("xyz (f64)");
+//     println!("     0.1 + 0.2: {:?}", (xyz.0 + xyz.1).to_bits());
+//     println!("           0.3: {:?}", (xyz.2).to_bits());
+//     println!();
+
+//     assert!(abc.0 + abc.1 == abc.2);
+//     assert!(xyz.0 + xyz.1 == xyz.2);
+// }

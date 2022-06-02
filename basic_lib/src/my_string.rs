@@ -115,3 +115,79 @@ fn array_test() {
     assert!(i[0] == 1);
     assert!(i.len() == 100);
 }
+
+fn calculate_length(s: &mut String) -> usize {
+    s.push_str(",world");
+    s.len()
+}
+
+fn first_world(s: &String) -> usize {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+    s.len()
+}
+
+fn first_world_slice(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+    &s[..]
+}
+
+fn first_world_sli(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+    &s[..]
+}
+
+#[test]
+fn calculate_length_test() {
+    let mut s1 = String::from("hello");
+
+    let len = calculate_length(&mut s1);
+    println!("The length of '{}' is {}.", s1, len);
+
+    // let mut s = String::from("Hello");
+    // let r1 = &s;
+    // let r2 = &s;
+    // let s1 = &mut s;
+
+    // println!("{} {} {}",r1,r2,s1);
+
+    // let mut s = String::from("Hello world");
+    // let wordIndex = first_world(&s);
+
+    // println!("{}", wordIndex);
+}
+
+#[test]
+fn slice_test() {
+    let s = String::from("Hello world");
+
+    let hello = &s[0..5];
+    let world = &s[6..11];
+
+    println!("{}, {}", hello, world);
+
+    let my_string = String::from("Hello world");
+    let word_index = first_world_sli(&my_string);
+    println!("{}", word_index);
+
+    let my_string_literal = "hello world";
+    let word_index = first_world_sli(my_string_literal);
+    println!("{}", word_index);
+}

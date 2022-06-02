@@ -9,4 +9,8 @@ mod tests {
 
 pub mod basic_data;
 pub mod my_string;
+pub mod my_control;
+pub mod my_variable;
 pub mod my_hashmap;
+pub mod my_struct;
+
