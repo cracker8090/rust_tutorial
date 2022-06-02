@@ -9,3 +9,4 @@ mod tests {
 
 pub mod basic_data;
 pub mod my_string;
+pub mod my_hashmap;
