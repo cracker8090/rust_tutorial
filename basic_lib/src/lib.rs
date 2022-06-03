@@ -8,9 +8,11 @@ mod tests {
 }
 
 pub mod basic_data;
-pub mod my_string;
 pub mod my_control;
-pub mod my_variable;
 pub mod my_hashmap;
+pub mod my_match;
+pub mod my_string;
 pub mod my_struct;
-
+pub mod my_variable;
+pub mod my_ownership;
+pub mod my_panic;

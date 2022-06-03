@@ -12,8 +12,37 @@ enum Message {
     ChangeColor(i32, i32, i32),
 }
 
+fn build_person(name: String, age: u8) -> Person {
+    Person { age, name }
+}
+
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn set_email(u: User) -> User {
+    User {
+        email: String::from("contact@im.dev"),
+        ..u
+    }
+}
+
+fn show_message(msg: Message) {
+    println!("{:?}", msg);
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
 #[test]
-fn struct_test() {
+fn struct1_test() {
     let age = 30;
     let mut p = Person {
         name: String::from("sunface"),
@@ -23,20 +52,6 @@ fn struct_test() {
     p.age = 18;
     p.name = String::from("sunfei");
     println!("{:#?}", p);
-
-    let msg1 = Message::Move { x: 1, y: 2 };
-    let msg2 = Message::Write("hello,world".to_string());
-    dbg!(&msg1, &msg2);
-
-    let msgs: [Message; 3] = [
-        Message::Quit,
-        Message::Move { x: 1, y: 3 },
-        Message::ChangeColor(255, 255, 0),
-    ];
-
-    for msg in msgs {
-        show_message(msg);
-    }
 
     let five = Some(5);
     let six = plus_one(five);
@@ -74,31 +89,19 @@ fn struct_test() {
     }
 }
 
-fn build_person(name: String, age: u8) -> Person {
-    Person { age, name }
-}
+#[test]
+fn struct2_test() {
+    let msg1 = Message::Move { x: 1, y: 2 };
+    let msg2 = Message::Write("hello,world".to_string());
+    dbg!(&msg1, &msg2);
 
-struct User {
-    active: bool,
-    username: String,
-    email: String,
-    sign_in_count: u64,
-}
+    let msgs: [Message; 3] = [
+        Message::Quit,
+        Message::Move { x: 1, y: 3 },
+        Message::ChangeColor(255, 255, 0),
+    ];
 
-fn set_email(u: User) -> User {
-    User {
-        email: String::from("contact@im.dev"),
-        ..u
-    }
-}
-
-fn show_message(msg: Message) {
-    println!("{:?}", msg);
-}
-
-fn plus_one(x: Option<i32>) -> Option<i32> {
-    match x {
-        None => None,
-        Some(i) => Some(i + 1),
+    for msg in msgs {
+        show_message(msg);
     }
 }
