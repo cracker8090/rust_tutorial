@@ -191,3 +191,14 @@ fn slice_test() {
     let word_index = first_world_sli(my_string_literal);
     println!("{}", word_index);
 }
+
+#[test]
+fn format_test() {
+    let s = "hello";
+    let s1 = format!("{},world", s);
+    println!("{}", s1);
+    eprintln!("Error: Could not complete task");
+
+    // let person = get_person();
+    // println!("Hello, {person}!");
+}
