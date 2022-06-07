@@ -30,3 +30,4 @@ pub mod my_panic;
 pub mod my_string;
 pub mod my_struct;
 pub mod my_variable;
+pub mod my_smartpoints;
