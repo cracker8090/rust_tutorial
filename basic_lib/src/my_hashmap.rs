@@ -118,3 +118,12 @@ fn hashmap_curd_test() {
     let v = scores.entry("Yellow".to_string()).or_insert(50);
     assert_eq!(*v, 5); // 已经存在，因此50没有插入
 }
+
+fn test_hashmap() {
+    let mut scores = HashMap::new();
+    scores.insert(String::from("yellow"), 10);
+    scores.insert(String::from("yellow"), 20);
+    scores.entry(String::from("blue")).or_insert(50);
+    scores.entry(String::from("yellow")).or_insert(50);
+    println!("{:?}", scores);
+}
